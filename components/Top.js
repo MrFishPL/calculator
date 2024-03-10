@@ -20,7 +20,6 @@ const styles = StyleSheet.create({
     paddingBottom: REM,
     justifyContent: "space-between",
     paddingHorizontal: REM,
-    paddingTop: 2*REM,
   },
 
   text: {

@@ -41,12 +41,14 @@ export default function App() {
 
   const calculate = () => {
     try {
+      if (calcus[calcus.length - 1] == ".") throw new Error();
+
       const c = calcus.replaceAll("×", "*").replaceAll("√", "Math.sqrt");
 
       let x = eval("const pow = (n) => Math.pow(n, 2);const sin = Math.sin;const cos = Math.cos;const ln = Math.log;"+c);
       x = Math.round(x * 1000000)/1000000;
 
-      if (isNaN(x) || x == Infinity) return "Nieistniejące działanie";
+      if (isNaN(x) || x == Infinity || x == -Infinity) return "Nieistniejące działanie";
       if (Math.abs(x) > 999999999999999) return "Zbyt duży wynik";
       if (Math.abs(x) < 0.000001 && x != 0) return "Zbyt mały wynik";
       return String(x);
